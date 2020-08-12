@@ -28,8 +28,26 @@ class ToDoTableTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        toDos = createToDos()
+        //return an array of Core Data ToDos
+        //var toDos : [ToDoCD] = []
         
+        //access Core Data
+        /*
+         func getToDos() {
+            if let context = (UIApplication.shared.delegate as?
+                AppDelegate)?.persistentContainer.viewContext {
+                
+                //fetch the ToDos from Core Data and bring them back as an array of Core Data objects
+                if let coreDataToDos = try? context.fetch(ToDoCD.fetchRequest()) as? [ToDoCD] {
+                    //if let the ToDos = coreDataToDos {
+                        toDos = coreDataToDos
+                        tableView.reloadData()
+                    }
+                }
+                
+            }
+        }
+ */
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -56,22 +74,26 @@ class ToDoTableTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
         
         let toDo = toDos[indexPath.row]
-
-        // Configure the cell...
-
-        //return cell
         
-    
-        //let toDo = toDos[indexPath.row]
-        
-        if toDo.important {
-            cell.textLabel?.text = "❗️" + toDo.name
-        } else {
-            cell.textLabel?.text = toDo.name
-        }
+        //unwrap the name because a String is not being unwrapped
+        if let name = toDo.name {
+            if toDo.important {
+                //let toDo = toDos[indexPath.row]
+                
+                if toDo.important {
+                    cell.textLabel?.text = "❗️" + toDo.name
+                } else {
+                    cell.textLabel?.text = toDo.name
+                    
+                }
+            }
         
         return cell
     }
+        
+    override func viewWillAppear(_ animated: Bool) {
+            getToDos()
+        }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
@@ -97,6 +119,8 @@ class ToDoTableTableViewController: UITableViewController {
         }
     
     }
+    
+    
     
     /*override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let addVC = segue.destination as?
@@ -165,5 +189,4 @@ class ToDoTableTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
 }
