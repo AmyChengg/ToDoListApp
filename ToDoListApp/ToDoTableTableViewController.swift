@@ -10,7 +10,7 @@ import UIKit
 
 class ToDoTableTableViewController: UITableViewController {
 
-    func createToDos() -> [ToDo] {
+    /*func createToDos() -> [ToDo] {
         
         let swift = ToDo()
         swift.name = "Learn Swift"
@@ -21,9 +21,9 @@ class ToDoTableTableViewController: UITableViewController {
         
         return [swift, dog]
         
-    }
+    }*/
     
-    var toDos : [ToDo] = []
+    var toDos : [ToDoCD] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,14 +32,14 @@ class ToDoTableTableViewController: UITableViewController {
         //var toDos : [ToDoCD] = []
         
         //access Core Data
-        /*
+        
          func getToDos() {
             if let context = (UIApplication.shared.delegate as?
                 AppDelegate)?.persistentContainer.viewContext {
                 
                 //fetch the ToDos from Core Data and bring them back as an array of Core Data objects
                 if let coreDataToDos = try? context.fetch(ToDoCD.fetchRequest()) as? [ToDoCD] {
-                    //if let the ToDos = coreDataToDos {
+                    //if let theToDos = coreDataToDos {
                         toDos = coreDataToDos
                         tableView.reloadData()
                     }
@@ -47,7 +47,7 @@ class ToDoTableTableViewController: UITableViewController {
                 
             }
         }
- */
+ 
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -78,21 +78,18 @@ class ToDoTableTableViewController: UITableViewController {
         //unwrap the name because a String is not being unwrapped
         if let name = toDo.name {
             if toDo.important {
-                //let toDo = toDos[indexPath.row]
-                
-                if toDo.important {
-                    cell.textLabel?.text = "❗️" + toDo.name
-                } else {
-                    cell.textLabel?.text = toDo.name
+                cell.textLabel?.text = "❗️" + name
+            } else {
+                cell.textLabel?.text = toDo.name
                     
-                }
             }
+        }
         
         return cell
     }
         
     override func viewWillAppear(_ animated: Bool) {
-            getToDos()
+        getToDos()
         }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

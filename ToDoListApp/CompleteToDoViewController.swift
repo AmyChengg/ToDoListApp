@@ -9,11 +9,13 @@
 import UIKit
 
 class CompleteToDoViewController: UIViewController {
+    
+    var previousVC = ToDoTableTableViewController()
+    
+    var selectedToDo : ToDoCD?
 
     
     @IBOutlet weak var titleLabel: UILabel!
-    
-    var selectedToDo : ToDoCD?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,8 +40,7 @@ class CompleteToDoViewController: UIViewController {
         }
     }
     
-    var previousVC = ToDoTableTableViewController()
-    var selectedToDo = ToDo()
+    
     /*
     // MARK: - Navigation
 
