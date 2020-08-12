@@ -10,11 +10,17 @@ import UIKit
 
 class AddToDoViewController: UIViewController {
     
+    var previousVC = ToDoTableTableViewController()
+
+    
     @IBOutlet weak var labelImportant: UILabel!
     
-    @IBOutlet weak var switchImportant: UISwitch!
+   
+    @IBOutlet weak var importantSwitch: UISwitch!
     
     @IBOutlet weak var titleTextField: UITextField!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -27,18 +33,10 @@ class AddToDoViewController: UIViewController {
         
         if let titleText = titleTextField.text {
             toDo.name = titleText
-            toDo.important = switchImportant.isOn
+            toDo.important = importantSwitch.isOn
         }
-        //add a new ToDo
-        previousVC.toDos.append(toDo)
-        previousVC.tableView.reloadData()
-        //pop back to the Table View when user taps the Add button
-    
-    navigationController?.popViewController(animated: true)
+
     }
-   
-    //add the class ToDoTableViewController so the ToDo is added to the ToDo array
-    var previousVC = ToDoTableTableViewController()
     
     
     

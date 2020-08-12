@@ -99,8 +99,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Add a To Do" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HVG-Zs-UJI">
-                                <rect key="frame" x="166" y="440" width="118" height="34"/>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Additional Notes" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HVG-Zs-UJI">
+                                <rect key="frame" x="166" y="440" width="135" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -134,14 +134,16 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                 <state key="normal" title="Button" image="plus" catalog="system"/>
                                 <connections>
-                                    <action selector="addTapped:" destination="Lk9-Ka-vnf" eventType="touchUpInside" id="Hem-8b-eQZ"/>
+                                    <action selector="addTapped:" destination="Lk9-Ka-vnf" eventType="touchUpInside" id="Tlj-Fz-VpV"/>
                                     <action selector="buttonAddTapped:" destination="Lk9-Ka-vnf" eventType="touchUpInside" id="DW0-gn-Ynt"/>
                                 </connections>
                             </button>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="importantSwitch" destination="5Cm-UC-1Jl" id="51S-BY-QFS"/>
                         <outlet property="labelImportant" destination="HkU-mx-a7S" id="t1u-Ok-5JD"/>
+                        <outlet property="titleTextField" destination="Oc5-On-qUk" id="gfG-3Z-m2d"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vTX-X9-zvw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
